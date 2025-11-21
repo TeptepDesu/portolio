@@ -152,12 +152,12 @@ export default function App() {
           <motion.h2 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-3xl md:text-4xl font-bold mb-12 text-gray-900 dark:text-white">Certifications</motion.h2>
           <div className="grid md:grid-cols-2 gap-4">
             {[
-              'NC II - (Computer Systems Services)',
-              'Meta - Introduction to Frontend Development',
-              'Meta - Programming with JavaScript',
-              'Meta - HTML and CSS in Depth',
-              'Meta - React Basics',
-              'Meta - Advanced React',
+              { name: 'NC II - (Computer Systems Services)', url: null },
+              { name: 'Meta - Introduction to Frontend Development', url: 'https://www.coursera.org/account/accomplishments/verify/WH5W2AECMU6Z?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course' },
+              { name: 'Meta - Programming with JavaScript', url: 'https://coursera.org/share/9e60d5220cc7a6caa485e1524340857d' },
+              { name: 'Meta - HTML and CSS in Depth', url: 'https://www.coursera.org/account/accomplishments/verify/47FDHRHUCY2H?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course' },
+              { name: 'Meta - React Basics', url: 'https://www.coursera.org/account/accomplishments/verify/JSJMFTTG733U?utm_source=link&utm_medium=certificate&utm_content=pdf_header_button&utm_product=course' },
+              { name: 'Meta - Advanced React', url: 'https://www.coursera.org/account/accomplishments/verify/JSJMFTTG733U?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=course' },
             ].map((cert, idx) => (
               <motion.div 
                 key={idx}
@@ -165,10 +165,26 @@ export default function App() {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="p-4 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all flex items-center"
               >
-                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center text-white text-sm font-bold mr-3 flex-shrink-0">✓</div>
-                <span className="text-gray-700 dark:text-gray-300">{cert}</span>
+                {cert.url ? (
+                  <a
+                    href={cert.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-4 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-purple-300 dark:hover:border-purple-600 transition-all flex items-center group cursor-pointer"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center text-white text-sm font-bold mr-3 flex-shrink-0">✓</div>
+                    <span className="text-gray-700 dark:text-gray-300 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition flex-1">{cert.name}</span>
+                    <svg className="w-4 h-4 text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                ) : (
+                  <div className="p-4 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all flex items-center">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center text-white text-sm font-bold mr-3 flex-shrink-0">✓</div>
+                    <span className="text-gray-700 dark:text-gray-300">{cert.name}</span>
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
