@@ -182,7 +182,7 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-6">
             {[
               { name: 'Ramcos Nulud Website', url: 'https://ramcosnulud.com/' },
-              { name: 'Website Portfolio', url: 'https://teptepdesu.github.io/Portfolio-Project/' },
+              { name: 'Website Portfolio (Old Meta Project)', url: 'https://teptepdesu.github.io/Portfolio-Project/' },
               { name: 'E-Commerce Website Project', url: 'https://teptepdesu.github.io/Ecommorce-project/' },
               { name: 'International Graduate School of Ministry', url: 'https://www.igsm-ph.org/' },
             ].map((p) => (
