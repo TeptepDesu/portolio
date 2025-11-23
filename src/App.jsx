@@ -45,7 +45,7 @@ export default function App() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white">Joseph Irah G. Caballero</h1>
-              <p className="mt-3 text-lg text-gray-600 dark:text-gray-300">Software Quality Assurance Analyst • Frontend Developer • Software Developer Engineer in Test</p>
+              <p className="mt-3 text-lg text-gray-600 dark:text-gray-300">Software Quality Assurance Analyst • Frontend Developer • Software Development Engineer in Test (SDET)</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <a href="mailto:caballerojosephirah@gmail.com" className="px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white hover:shadow-lg transition-all">caballerojosephirah@gmail.com</a>
                 <span className="px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white">+63 927 928 5588</span>
@@ -135,6 +135,7 @@ export default function App() {
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all">
               <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Programming Skills</h3>
               <ul className="list-disc ml-5 space-y-2 text-gray-700 dark:text-gray-300">
+                <li>Java (Professional in Selenium)</li>
                 <li>HTML & CSS, JavaScript</li>
                 <li>React, Vue.js, Node.js</li>
               </ul>
@@ -144,7 +145,9 @@ export default function App() {
       </section>
 
       {/* Interactive Skills Showcase */}
-      <SkillsShowcase />
+      <section id="skills-showcase" className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900/50 dark:to-gray-900">
+        <SkillsShowcase />
+      </section>
 
       {/* Certifications */}
       <section id="certifications" className="py-16 bg-white dark:bg-gray-900">
@@ -159,7 +162,7 @@ export default function App() {
               { name: 'Meta - React Basics', url: 'https://www.coursera.org/account/accomplishments/verify/JSJMFTTG733U?utm_source=link&utm_medium=certificate&utm_content=pdf_header_button&utm_product=course' },
               { name: 'Meta - Advanced React', url: 'https://www.coursera.org/account/accomplishments/verify/JSJMFTTG733U?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=course' },
             ].map((cert, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 variants={fadeUp}
                 initial="hidden"
