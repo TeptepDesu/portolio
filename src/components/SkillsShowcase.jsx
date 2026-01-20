@@ -3,81 +3,37 @@ import { useState } from "react";
 import AutomationSimulator from "./AutomationSimulator";
 
 const skillsData = {
+  qa: [
+    { title: "Test Strategy & Design", description: "Independently designing end-to-end QA strategies" },
+    { title: "Black Box & Exploratory", description: "Uncovering edge cases and usability gaps" },
+    { title: "Regression & Integration", description: "Building robust regression suites" },
+    { title: "Defect Management", description: "Standardizing documentation and resolution tracking" },
+  ],
+  security: [
+    { title: "API Testing & Security", description: "Testing with Postman, JWT, and data validation" },
+    { title: "Vulnerability Testing", description: "Manual threat modeling and risk identification" },
+    { title: "Performance Testing", description: "Load and stress testing using JMeter" },
+  ],
   automation: [
-    {
-      title: "Java Selenium Mastery",
-      description: "Advanced automation testing with Selenium WebDriver using Java",
-      icon: "🧪",
-      proficiency: 95,
-    },
-    {
-      title: "Test Automation Framework",
-      description: "Building robust and scalable test automation frameworks",
-      icon: "🔌",
-      proficiency: 90,
-    },
-    {
-      title: "Black Box Testing Automation",
-      description: "Automating comprehensive black box test cases",
-      icon: "⚙️",
-      proficiency: 88,
-    },
-    {
-      title: "Healenium Self-Healing Automation",
-      description: "Self-healing automation testing with Healenium framework",
-      icon: "🩹",
-      proficiency: 87,
-    },
+    { title: "Java + Selenium", description: "Professional automation script development" },
+    { title: "JavaScript", description: "Modern web automation and scripting" },
+    { title: "Framework Design", description: "Basic reusable automation patterns" },
   ],
-  devtools: [
-    {
-      title: "API Security Testing",
-      description: "Comprehensive API security vulnerability assessment",
-      icon: "🔐",
-      proficiency: 92,
-    },
-    {
-      title: "OWASP ZAP Mastery",
-      description: "Expert-level OWASP ZAP penetration testing",
-      icon: "🔍",
-      proficiency: 90,
-    },
-    {
-      title: "Vulnerability Testing",
-      description: "Identifying and documenting security vulnerabilities",
-      icon: "⚠️",
-      proficiency: 88,
-    },
-  ],
-  softskills: [
-    {
-      title: "React Development",
-      description: "Building responsive and modular UI components using React, hooks, and Tailwind.",
-      icon: "⚛️",
-      proficiency: 85,
-    },
-    {
-      title: "Tailwind CSS",
-      description: "Responsive & modern UI design with Tailwind CSS",
-      icon: "🎨",
-      proficiency: 88,
-    },
-    {
-      title: "JavaScript & DOM",
-      description: "Core JavaScript & DOM manipulation expertise",
-      icon: "💻",
-      proficiency: 87,
-    },
+  frontend: [
+    { title: "React Development", description: "Modern UI components and hooks" },
+    { title: "HTML & CSS", description: "Responsive and semantically structured web" },
+    { title: "Tailwind CSS", description: "Utility-first modern styling" },
   ],
 };
 
 export default function SkillsShowcase() {
-  const [activeCategory, setActiveCategory] = useState("automation");
+  const [activeCategory, setActiveCategory] = useState("qa");
 
   const categories = [
-    { id: "automation", label: "Automation Skills", icon: "🤖" },
-    { id: "devtools", label: "API Security & Testing", icon: "🔒" },
-    { id: "softskills", label: "Frontend Skills", icon: "🎨" },
+    { id: "qa", label: "QA & Testing" },
+    { id: "security", label: "Security & API" },
+    { id: "automation", label: "Automation" },
+    { id: "frontend", label: "Frontend Skills" },
   ];
 
   const items = skillsData[activeCategory];
@@ -96,11 +52,10 @@ export default function SkillsShowcase() {
           <button
             key={cat.id}
             onClick={() => setActiveCategory(cat.id)}
-            className={`px-6 py-2 rounded-full text-sm transition-all border flex items-center gap-2 font-semibold ${
-              activeCategory === cat.id
-                ? "bg-gradient-to-r from-purple-600 to-indigo-600 border-purple-500 text-white shadow-lg shadow-purple-500/50"
-                : "bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700"
-            }`}
+            className={`px-6 py-2 rounded-full text-sm transition-all border flex items-center gap-2 font-semibold ${activeCategory === cat.id
+              ? "bg-gradient-to-r from-purple-600 to-indigo-600 border-purple-500 text-white shadow-lg shadow-purple-500/50"
+              : "bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700"
+              }`}
           >
             <span>{cat.icon}</span>
             {cat.label}
@@ -148,30 +103,6 @@ export default function SkillsShowcase() {
           ))}
         </motion.div>
       </AnimatePresence>
-
-      {/* SUMMARY STATS */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {[
-          { label: 'Automation Testing', value: '95%', icon: '🤖' },
-          { label: 'API Security', value: '92%', icon: '🔒' },
-          { label: 'Frontend Development', value: '87%', icon: '🎨' }
-        ].map((stat, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: idx * 0.1 }}
-            viewport={{ once: true }}
-            className="p-6 rounded-2xl border shadow-lg hover:shadow-xl transition-all text-center bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800"
-          >
-            <div className="text-5xl mb-4">{stat.icon}</div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{stat.label}</h3>
-            <p className="text-4xl font-bold text-purple-600 dark:text-purple-400">
-              {stat.value}
-            </p>
-          </motion.div>
-        ))}
-      </div>
 
 
       {/* AUTOMATION SIMULATOR SECTION */}

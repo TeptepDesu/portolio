@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { EnvelopeFill, TelephoneFill, GeoAltFill, SendFill } from 'react-bootstrap-icons';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -37,61 +38,67 @@ export default function Contact() {
   return (
     <section id="contact" className="py-16 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-900/50">
       <div className="container">
-        <motion.h2 
-          variants={fadeUp} 
-          initial="hidden" 
-          whileInView="show" 
-          viewport={{ once: true }} 
+        <motion.h2
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
           className="text-3xl md:text-4xl font-bold mb-12 text-gray-900 dark:text-white"
         >
           Contact Me
         </motion.h2>
-        
+
         <div className="grid md:grid-cols-2 gap-6">
           {/* Contact Information */}
-          <motion.div 
-            variants={fadeUp} 
-            initial="hidden" 
-            whileInView="show" 
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
             viewport={{ once: true }}
             className="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center text-white text-lg flex-shrink-0">
-                📧
+                <EnvelopeFill size={18} />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Get in Touch</h3>
             </div>
-            
+
             <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">📧</span>
+              <div className="flex items-start gap-4">
+                <div className="mt-1 text-blue-600 dark:text-blue-400">
+                  <EnvelopeFill size={20} />
+                </div>
                 <div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Email</p>
-                  <a 
-                    href="mailto:caballerojosephirah@gmail.com" 
+                  <a
+                    href="mailto:caballerojosephirah@gmail.com"
                     className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium break-all"
                   >
                     caballerojosephirah@gmail.com
                   </a>
                 </div>
               </div>
-              
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">📱</span>
+
+              <div className="flex items-start gap-4">
+                <div className="mt-1 text-blue-600 dark:text-blue-400">
+                  <TelephoneFill size={20} />
+                </div>
                 <div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Phone</p>
-                  <a 
-                    href="tel:+639279285588" 
+                  <a
+                    href="tel:+639279285588"
                     className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium"
                   >
                     +63 927 928 5588
                   </a>
                 </div>
               </div>
-              
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">📍</span>
+
+              <div className="flex items-start gap-4">
+                <div className="mt-1 text-blue-600 dark:text-blue-400">
+                  <GeoAltFill size={20} />
+                </div>
                 <div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Location</p>
                   <p className="text-gray-700 dark:text-gray-300 font-medium">Angono, Rizal, Philippines</p>
@@ -101,16 +108,16 @@ export default function Contact() {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div 
-            variants={fadeUp} 
-            initial="hidden" 
-            whileInView="show" 
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
             viewport={{ once: true }}
             className="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center text-white text-lg flex-shrink-0">
-                ✉️
+                <SendFill size={18} />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Send Message</h3>
             </div>

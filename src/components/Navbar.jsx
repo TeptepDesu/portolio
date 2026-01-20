@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { MoonStarsFill, SunFill } from 'react-bootstrap-icons';
 
 export default function Navbar({ sections, active, onToggleDark }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,8 +25,8 @@ export default function Navbar({ sections, active, onToggleDark }) {
   return (
     <nav
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled
-          ? 'backdrop-blur-md bg-white/80 dark:bg-gray-900/80 shadow-lg border-b border-gray-200/50 dark:border-gray-800/50'
-          : 'backdrop-blur-sm bg-white/60 dark:bg-gray-900/60 border-b border-gray-200/30 dark:border-gray-800/30'
+        ? 'backdrop-blur-md bg-white/80 dark:bg-gray-900/80 shadow-lg border-b border-gray-200/50 dark:border-gray-800/50'
+        : 'backdrop-blur-sm bg-white/60 dark:bg-gray-900/60 border-b border-gray-200/30 dark:border-gray-800/30'
         }`}
     >
       <div className="container flex items-center justify-between h-16 px-4">
@@ -35,7 +36,7 @@ export default function Navbar({ sections, active, onToggleDark }) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <span className="text-2xl">👨‍💻</span>
+          <span className="text-2xl">JC</span>
           <span className="hidden sm:inline">Joseph Caballero</span>
           <span className="sm:hidden">JC</span>
         </motion.a>
@@ -52,8 +53,8 @@ export default function Navbar({ sections, active, onToggleDark }) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05 }}
                 className={`px-3 py-2 text-sm rounded-lg transition-all relative group ${active === s.id
-                    ? 'text-blue-600 dark:text-blue-400 font-semibold'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+                  ? 'text-blue-600 dark:text-blue-400 font-semibold'
+                  : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                   }`}
               >
                 {label}
@@ -73,9 +74,14 @@ export default function Navbar({ sections, active, onToggleDark }) {
             onClick={onToggleDark}
             whileHover={{ scale: 1.1, rotate: 15 }}
             whileTap={{ scale: 0.9 }}
-            className="ml-2 rounded-xl px-3 py-2 text-lg border border-gray-300 dark:border-gray-700 hover:shadow-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+            className="ml-2 rounded-xl px-3 py-2 text-lg border border-gray-300 dark:border-gray-700 hover:shadow-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-all flex items-center justify-center"
           >
-            🌙
+            <div className="dark:hidden text-gray-700">
+              <MoonStarsFill size={20} />
+            </div>
+            <div className="hidden dark:block text-yellow-400">
+              <SunFill size={20} />
+            </div>
           </motion.button>
         </div>
 
@@ -86,9 +92,14 @@ export default function Navbar({ sections, active, onToggleDark }) {
             onClick={onToggleDark}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="rounded-xl px-2 py-1 text-lg border border-gray-300 dark:border-gray-700 hover:shadow-md transition-all"
+            className="rounded-xl px-2 py-1 text-lg border border-gray-300 dark:border-gray-700 hover:shadow-md transition-all flex items-center justify-center"
           >
-            🌙
+            <div className="dark:hidden text-gray-700">
+              <MoonStarsFill size={18} />
+            </div>
+            <div className="hidden dark:block text-yellow-400">
+              <SunFill size={18} />
+            </div>
           </motion.button>
           <motion.button
             onClick={toggleMenu}
@@ -129,8 +140,8 @@ export default function Navbar({ sections, active, onToggleDark }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.05 }}
                     className={`px-4 py-3 rounded-lg text-sm transition-all ${active === s.id
-                        ? 'bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50 text-blue-600 dark:text-blue-400 font-semibold shadow-sm'
-                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                      ? 'bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50 text-blue-600 dark:text-blue-400 font-semibold shadow-sm'
+                      : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                       }`}
                   >
                     {label}
