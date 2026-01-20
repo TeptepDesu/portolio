@@ -22,6 +22,27 @@ export default function Navbar({ sections, active, onToggleDark }) {
     setIsOpen(false);
   };
 
+  const scrollToSection = (e, id) => {
+    if (e) e.preventDefault();
+    setIsOpen(false);
+
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        const offset = 80; // Navbar height offset
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 300);
+  };
+
   return (
     <nav
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled
@@ -32,13 +53,13 @@ export default function Navbar({ sections, active, onToggleDark }) {
       <div className="container flex items-center justify-between h-16 px-4">
         <motion.a
           href="#home"
-          className="font-bold tracking-tight text-gray-900 dark:text-white text-lg flex items-center gap-2"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          onClick={(e) => scrollToSection(e, 'home')}
+          className="font-bold tracking-tight text-gray-900 dark:text-white text-lg flex items-center group cursor-pointer"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
         >
-          <span className="text-2xl">JC</span>
-          <span className="hidden sm:inline">Joseph Caballero</span>
-          <span className="sm:hidden">JC</span>
+          <span className="text-2xl bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">JC</span>
+          <span className="hidden sm:inline border-l border-gray-300 dark:border-gray-700 ml-2 pl-2">Joseph Caballero</span>
         </motion.a>
 
         {/* Desktop Menu */}
@@ -49,6 +70,7 @@ export default function Navbar({ sections, active, onToggleDark }) {
               <motion.a
                 key={s.id}
                 href={`#${s.id}`}
+                onClick={(e) => scrollToSection(e, s.id)}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05 }}
@@ -135,7 +157,7 @@ export default function Navbar({ sections, active, onToggleDark }) {
                   <motion.a
                     key={s.id}
                     href={`#${s.id}`}
-                    onClick={closeMenu}
+                    onClick={(e) => scrollToSection(e, s.id)}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.05 }}
