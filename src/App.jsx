@@ -41,9 +41,9 @@ export default function App() {
       <Navbar sections={sections} active={active} onToggleDark={toggleDark} />
 
       {/* Home */}
-      <section id="home" className="pt-28 pb-16">
+      <section id="home" className="pt-24 pb-4 md:pt-28 md:pb-16">
         <div className="container">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid md:grid-cols-2 gap-8 items-center">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid md:grid-cols-2 gap-4 md:gap-8 items-center">
             <div>
               <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white">Joseph Irah G. Caballero</h1>
               <p className="mt-3 text-lg text-gray-600 dark:text-gray-300">Software Quality Assurance Engineer / SDET</p>
@@ -53,7 +53,7 @@ export default function App() {
                 <span className="px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white">Angono, Rizal, PH</span>
               </div>
             </div>
-            <div className="justify-self-end">
+            <div className="hidden md:block justify-self-end">
               <div className="w-full h-48 md:h-64 rounded-3xl bg-gradient-to-br from-purple-600 to-indigo-600 opacity-90 shadow-2xl"></div>
             </div>
           </motion.div>
@@ -61,7 +61,7 @@ export default function App() {
       </section>
 
       {/* Experience */}
-      <section id="experience" className="py-16">
+      <section id="experience" className="py-8 md:py-16">
         <div className="container">
           <motion.h2 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-white">Experience</motion.h2>
           <div className="space-y-6">
@@ -124,7 +124,7 @@ export default function App() {
       </section>
 
       {/* Skills */}
-      <section id="skills" className="py-16 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-900/50">
+      <section id="skills" className="py-10 md:py-16 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-900/50">
         <div className="container">
           <motion.h2 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-3xl md:text-4xl font-bold mb-12 text-gray-900 dark:text-white">Skills</motion.h2>
           <div className="grid md:grid-cols-2 gap-6">
@@ -156,7 +156,7 @@ export default function App() {
       </section>
 
       {/* Certifications */}
-      <section id="certifications" className="py-16 bg-white dark:bg-gray-900">
+      <section id="certifications" className="py-10 md:py-16 bg-white dark:bg-gray-900">
         <div className="container">
           <motion.h2 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-3xl md:text-4xl font-bold mb-12 text-gray-900 dark:text-white">Certifications</motion.h2>
           <div className="grid md:grid-cols-2 gap-4">
@@ -201,7 +201,7 @@ export default function App() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="py-16 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-900/50">
+      <section id="projects" className="py-10 md:py-16 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-900/50">
         <div className="container">
           <motion.h2 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-3xl md:text-4xl font-bold mb-12 text-gray-900 dark:text-white">Projects</motion.h2>
           <div className="grid md:grid-cols-2 gap-6">
@@ -231,7 +231,7 @@ export default function App() {
       </section>
 
       {/* Education */}
-      <section id="education" className="py-16 bg-white dark:bg-gray-900">
+      <section id="education" className="py-10 md:py-16 bg-white dark:bg-gray-900">
         <div className="container">
           <motion.h2 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-3xl md:text-4xl font-bold mb-12 text-gray-900 dark:text-white">Education</motion.h2>
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all">
