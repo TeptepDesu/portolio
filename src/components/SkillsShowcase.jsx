@@ -27,12 +27,12 @@ const skillsData = {
 };
 
 export default function SkillsShowcase() {
-  const [activeCategory, setActiveCategory] = useState("qa");
+  const [activeCategory, setActiveCategory] = useState("automation");
 
   const categories = [
-    { id: "qa", label: "QA & Testing" },
-    { id: "security", label: "Security & API" },
     { id: "automation", label: "Automation" },
+    { id: "security", label: "Security & API" },
+    { id: "qa", label: "QA & Testing" },
     { id: "frontend", label: "Frontend Skills" },
   ];
 
@@ -52,12 +52,11 @@ export default function SkillsShowcase() {
           <button
             key={cat.id}
             onClick={() => setActiveCategory(cat.id)}
-            className={`px-6 py-2 rounded-full text-sm transition-all border flex items-center gap-2 font-semibold ${activeCategory === cat.id
+            className={`px-6 py-2 rounded-full text-sm transition-all border flex items-center justify-center font-semibold ${activeCategory === cat.id
               ? "bg-gradient-to-r from-purple-600 to-indigo-600 border-purple-500 text-white shadow-lg shadow-purple-500/50"
               : "bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700"
               }`}
           >
-            <span>{cat.icon}</span>
             {cat.label}
           </button>
         ))}
